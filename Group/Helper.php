@@ -5,9 +5,10 @@
  * @license    http://opensource.org/licenses/MIT MIT
  */
 
-namespace Hubzero\User\Group;
+namespace Qubeshub\User\Group;
 
-use Hubzero\User\Group;
+use Qubeshub\User\Group;
+use Hubzero\User\Group as HubzeroGroup;
 
 /**
  * Misc. group helper methods
@@ -272,7 +273,7 @@ class Helper
 	public static function getPluginAccess($group, $get_plugin = '')
 	{
 		// make sure we have a Hubzero group
-		if (!($group instanceof Group))
+		if (!($group instanceof Group || $group instanceof HubzeroGroup))
 		{
 			return;
 		}
@@ -307,7 +308,7 @@ class Helper
 		//array to store final group plugin preferences
 		//array of acceptable access levels
 		$group_plugin_access = array();
-		$acceptable_levels = array('nobody', 'anyone', 'registered', 'members');
+		$acceptable_levels = array('nobody', 'anyone', 'registered', 'members', 'managers');
 
 		//if we have already set some
 		if ($active_group_plugins)
