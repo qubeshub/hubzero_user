@@ -907,6 +907,11 @@ class User extends \Hubzero\Database\Relational
 	 */
 	public function save()
 	{
+		if ($this->get('username') == false)
+		{
+			return false;
+		}
+
 		// Trigger the onUserBeforeSave event.
 		$data  = $this->toArray();
 		$isNew = $this->isNew();
