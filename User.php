@@ -235,7 +235,7 @@ class User extends \Hubzero\Database\Relational
 		{
 			$email = $data['email'];
 
-			if (preg_match('/^-[0-9]+@invalid$/', $email))
+			if (preg_match('/^-[0-9]+@invalid$/', $email ?: ''))
 			{
 				return false;
 			}
