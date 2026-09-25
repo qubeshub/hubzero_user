@@ -9,6 +9,7 @@ namespace Qubeshub\User\Group;
 
 use Qubeshub\User\Group;
 use Hubzero\User\Group as HubzeroGroup;
+use App;
 
 /**
  * Misc. group helper methods
